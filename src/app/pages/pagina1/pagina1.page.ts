@@ -55,6 +55,8 @@ persona = new FormGroup({
     this.persona.controls.laEdad.setValue('');
   }
 
+    //focus en un campo
+
 
 
 

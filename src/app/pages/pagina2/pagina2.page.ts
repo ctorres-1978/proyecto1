@@ -37,7 +37,33 @@ export class Pagina2Page implements OnInit {
   }
 
   eliminar(rut:string){
-    alert('Ha dado click en eliminar el rut: '+ rut); 
+    var datos = localStorage.getItem('datos');
+    //alert(datos);
+    datos = datos.replace('[','');
+    datos = datos.replace(']','');
+    datos = datos.split('},{').join('};{');
+    //alert (datos);
+
+    var arreglo_temp = datos.split(';');
+    var per;
+    var lista_temp = new Array();
+
+    for (let index = 0; index < arreglo_temp.length; index++) {
+      var registro = arreglo_temp[index];
+      var la_persona = JSON.parse(registro);
+      per={
+        rut: la_persona.rut,
+        nombre: la_persona.nombre,
+        edad: la_persona.edad
+      };
+      // aqui esta la diferencia del eliminar con el listar
+      if (la_persona.rut != rut){
+        lista_temp.push(per);
+      }  
+    }
+    this.lista_personas = lista_temp;
+    localStorage.setItem('datos', JSON.stringify(this.lista_personas))
+    alert('Persona Eliminada Correctamente con el Rut: ' + rut);  
   }
 
   //listar la informacion en nuestra pagina

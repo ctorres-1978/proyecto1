@@ -12,20 +12,20 @@
         <ion-label position="floating">Rut</ion-label>
         <ion-input formControlName="elRut"></ion-input>
       </ion-item>
-      <ion-label color="danger" *ngif="persona.controls.elRut.errors?.required && (persona.touched || persona.dirty)">*El Rut es obligatorio</ion-label>
+      <ion-label color="danger" *ngIf="persona.controls.elRut.errors?.required && (persona.touched || persona.dirty)" >*El Rut es obligatorio</ion-label>
 
       <ion-item>
         <ion-label position="floating">Nombre</ion-label>
         <ion-input formControlName="elNombre"></ion-input>    
       </ion-item>
-      <ion-label color="danger" *ngif="persona.controls.elNombre.errors?.required && (persona.touched || persona.dirty)">*El Nombre es obligatorio</ion-label>
-      <ion-label color="danger" *ngif="persona.controls.elNombre.errors?.minlength && (persona.touched || persona.dirty)">*El Nombre debe tener al menos 3 caracteres</ion-label>
+      <ion-label color="danger" *ngIf="persona.controls.elNombre.errors?.required && (persona.touched || persona.dirty)">*El Nombre es obligatorio</ion-label>
+      <ion-label color="danger" *ngIf="persona.controls.elNombre.errors?.minlength && (persona.touched || persona.dirty)">*El Nombre debe tener al menos 3 caracteres</ion-label>
 
       <ion-item>
         <ion-label position="floating">Edad</ion-label>
         <ion-input formControlName="laEdad"></ion-input>
       </ion-item>
-      <ion-label color="danger" *ngif="persona.controls.elRut.errors?.required && (persona.touched || persona.dirty)">La edad  es obligatoria</ion-label>
+      <ion-label color="danger" *ngIf="persona.controls.laEdad.errors?.required && (persona.touched || persona.dirty)">La edad  es obligatoria</ion-label>
     
       <ion-button color="primary" expand="block" type="sumbit" [disabled]="!persona.valid">Grabar</ion-button>
       <ion-button color="secondary" expand="block" routerLink="/pagina2">Listar</ion-button>
